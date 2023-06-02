@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const connectString = process.env.mongoConnect
+const connectString = process.env.mongoConnect;
 
 mongoose.connect(connectString);
 

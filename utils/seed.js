@@ -1,15 +1,15 @@
-const connection = require('../config/connection');
-const { User, Thought } = require('../models');
-const { users, thoughts }= require('./data');
+const connection = require("../config/connection");
+const { User, Thought } = require("../models");
+const { users, thoughts } = require("./data");
 
-connection.on('error', (err) => {
-    console.error(err);
-    process.exit(1);
+connection.on("error", (err) => {
+  console.error(err);
+  process.exit(1);
 });
 
-connection.once('open', async () => {
+connection.once("open", async () => {
   try {
-    console.log('connected');
+    console.log("connected");
 
     await User.deleteMany({});
 
@@ -19,9 +19,9 @@ connection.once('open', async () => {
 
     await Thought.insertMany(thoughts);
 
-    console.info('Seeding complete.');
+    console.info("Seeding complete.");
   } catch (error) {
-    console.error('Error during seeding: ', error);
+    console.error("Error during seeding: ", error);
   } finally {
     connection.close();
     process.exit(0);
