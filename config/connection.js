@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://walker-logan:42069666@cluster0.d35djdg.mongodb.net/?authMechanism=DEFAULT');
+const connectString = process.env.mongoConnect
+
+mongoose.connect(connectString);
 
 module.exports = mongoose.connection;
